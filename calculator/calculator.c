@@ -40,11 +40,17 @@ printf("invalid selection");
 void normal_calculation(){
 //store in output in history file;
   FILE *fptr;
-  fptr = fopen("history.txt","w");
+  fptr = fopen("history.txt","a");
+  
+  //check;
+  if(fptr==NULL){
+    printf("not able to  read");
+  }
 
-  //adding heading in history;
-  fprintf(fptr,"\n\t\tHISTORY\n\n");
-  fprintf(fptr,"Note :- this History is tempory \nwhen you exit and then restart the program the history was delete automatically\n\n");;
+  //check 
+  if(fptr==NULL){
+    printf("file not created\n");
+  }
 
   int yes = 1;  //using for input multiple time;
   while(yes==1){
@@ -112,6 +118,10 @@ void history(){
   FILE *fptr;
   fptr = fopen("history.txt","r");
 
+  //chek;
+  if(fptr ==NULL){
+    printf("file not able to read");
+  }
   //read character by character;
   int ch; 
   ch = fgetc(fptr); //store first character in ch;
